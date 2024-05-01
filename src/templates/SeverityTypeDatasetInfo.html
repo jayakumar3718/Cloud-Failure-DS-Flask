@@ -1,0 +1,43 @@
+
+{% extends "Home.html" %}
+
+	{% block content %}
+
+		<h3 class="heading text-primary">Severity Type Dataset Info</h3>
+		<form id="frm" name="frm" method="post" action="/ProcessSeverityTypeDatasetInfo" enctype="multipart/form-data">
+			
+            <div class="text-center">
+				<button type="submit" class="btn btn-outline-primary btn-sm col-sm-1">Generate</button>
+			</div>
+    
+    
+
+		</form>
+				{% if displayResult == True %}
+		<div class="text-center">
+			<div class="alert alert-info my-3" role="alert">
+               No of Rows  : <b>{{ no_of_rows }}</b>
+            </div>
+
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"  style="width:10%">Severity Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for key,value in severity_type_df.iterrows() %}
+                    <tr>
+
+                        <td>{{ value["severity_type"] }}</td>
+                    </tr>
+                {% endfor %}
+               </tbody>
+            </table>
+
+		</div>
+
+    	{% endif %}
+    
+{% endblock %}
+    
