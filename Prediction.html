@@ -1,0 +1,87 @@
+
+{% extends "Home.html" %}
+
+	{% block content %}
+
+		<h3 class="heading text-primary">Prediction</h3>
+		<form id="frm" name="frm" method="post" action="/ProcessPrediction" enctype="multipart/form-data">
+			
+            <div class="form-group row m-5">
+                <label for="eventtype1" class="col-sm-3 col-form-label"><b>User Req.1:</b> Batch Processing </label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="eventtype1" name="eventtype1">
+                        <option value="0" {{'selected' if eventtype1 == '0'}}>Not Occurred</option>
+                        <option value="1" {{'selected' if eventtype1 == '1'}}>Occurred</option>
+                    </select>
+                </div>
+                <label for="eventtype2" class="col-sm-3 col-form-label"><b>User Req.2:</b> Incremental Backup </label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="eventtype2" name="eventtype2">
+                        <option value="0" {{'selected' if eventtype2 == '0'}}>Not Occurred</option>
+                        <option value="1" {{'selected' if eventtype2 == '1'}}>Occurred</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-5">
+                <label for="eventtype3" class="col-sm-3 col-form-label"><b>User Req.3:</b> Service Availability</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="eventtype3" name="eventtype3">
+                        <option value="0" {{'selected' if eventtype3 == '0'}}>Not Occurred</option>
+                        <option value="1" {{'selected' if eventtype3 == '1'}}>Occurred</option>
+                    </select>
+                </div>
+                <label for="eventtype4" class="col-sm-3 col-form-label"><b>User Req.4:</b> Disaster Recovery Process </label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="eventtype4" name="eventtype4">
+                        <option value="0" {{'selected' if eventtype4 == '0'}}>Not Occurred</option>
+                        <option value="1" {{'selected' if eventtype4 == '1'}}>Occurred</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-5">
+                <label for="eventtype5" class="col-sm-3 col-form-label">User Req.5:</b> Replication Time Conformance</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="eventtype5" name="eventtype5">
+                        <option value="0" {{'selected' if eventtype5 == '0'}}>Not Occurred</option>
+                        <option value="1" {{'selected' if eventtype5 == '1'}}>Occurred</option>
+                    </select>
+                </div>
+                <label for="eventtype6" class="col-sm-3 col-form-label">User Req.6:</b> Data Transfer Service</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="eventtype6" name="eventtype6">
+                        <option value="0" {{'selected' if eventtype6 == '0'}}>Not Occurred</option>
+                        <option value="1" {{'selected' if eventtype6 == '1'}}>Occurred</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-5">
+                <label for="eventtype7" class="col-sm-3 col-form-label">User Req.7:</b> Routing Policy</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="eventtype7" name="eventtype7">
+                        <option value="0" {{'selected' if eventtype7 == '0'}}>Not Occurred</option>
+                        <option value="1" {{'selected' if eventtype7 == '1'}}>Occurred</option>
+                    </select>
+                </div>
+                <label for="eventtype8" class="col-sm-3 col-form-label">User Req.8:</b> Filestore Enterprise</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="eventtype8" name="eventtype8">
+                        <option value="0" {{'selected' if eventtype8 == '0'}}>Not Occurred</option>
+                        <option value="1" {{'selected' if eventtype8 == '1'}}>Occurred</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-center">
+				<button type="submit" class="btn btn-outline-primary btn-sm col-sm-1">Generate</button>
+			</div>
+
+		</form>
+		{% if displayResult == True %}
+		    <div class="alert alert-success text-center" role="alert">
+               Prediction  : <b>{{ fault_message }}</b>
+            </div>
+
+    	{% endif %}
+    
+{% endblock %}
+    
